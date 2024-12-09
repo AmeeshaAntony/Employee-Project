@@ -1,14 +1,44 @@
 <div class="row">
+  @if (isLoader == true ){
+    <div class="col-12 text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-info" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-light" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-border text-dark" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  }
+  @else{
     @for(item of designationList;track $index){
-        <div class="col-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">{{item.designation}}</h5>
-                  <a href="#" class="btn btn-primary">Edit</a>
-                </div>
-              </div>
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{item.designation}}</h5>
+            <a href="#" class="btn btn-primary">Edit</a>
+          </div>
         </div>
-    }
+      </div>
+      }
     
+  }
+  
 </div>
-

@@ -1,2 +1,39 @@
-<h1>Angular</h1>
-<app-master></app-master>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Employee</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Add mr-3 to create spacing between links and the search bar -->
+        <ul class="navbar-nav mr-auto pr-3">
+          <li class="nav-item active">
+            <a class="nav-link " routerLink="/master" routerLinkActive="active">Master</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/employee" routerLinkActive="active">Employee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/client" routerLinkActive="active">Client</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/client-project" routerLinkActive="active">Client projects</a>
+          </li>
+        </ul>
+        <!-- Align and space the search bar -->
+        <div class="d-flex ml-auto">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <button class="btn btn-outline-success my-2 my-sm-0 pt-1" type="submit">Search</button>
+        </div>
+      </div>
+    </nav>
+</div>
+
+
+
+  <div class="container pt-1 pb-1">
+    <router-outlet></router-outlet>
+  </div>
+  
