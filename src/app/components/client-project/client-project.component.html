@@ -19,19 +19,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @for(item of clientList;track $index){
-                                <tr>
-                                    <td>{{$index+1}}</td>
-                                    <td>{{item.contactPersonName}}</td>
-                                    <td>{{item.companyName}}</td>
-                                    <td>{{item.contactNo}}</td>
-                                    <td>{{item.city}}</td>
+                                <tr *ngFor="let item of clientList; let $index = index">
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ item.contactPersonName }}</td>
+                                    <td>{{ item.companyName }}</td>
+                                    <td>{{ item.contactNo }}</td>
+                                    <td>{{ item.city }}</td>
                                     <td>
-                                        <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
-                                        <button class="btn btn-danger" (click)="onDelete(item.clientId)">Delete</button>
+                                      <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
+                                      <button class="btn btn-danger" (click)="onDelete(item.clientId)">Delete</button>
                                     </td>
                                 </tr>
-                                }
+                                
 
 
                             </tbody>
@@ -51,58 +50,62 @@
                     <div class="row">
                         <div class="col-6">
                             <label for="">Project Name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" formControlName="projectName" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Start Date</label>
-                            <input type="date" class="form-control">
+                            <input type="date" formControlName="startDate" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Expected End Date</label>
-                            <input type="date" class="form-control">
+                            <input type="date" formControlName="expectedEndDate" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Contact Name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" formControlName="contactPerson" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Contact Mobile</label>
-                            <input type="text" class="form-control">
+                            <input type="text" formControlName="contactNo" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Contact email</label>
-                            <input type="email" class="form-control">
+                            <input type="email" formControlName="contactPersonEmailId" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Total Employee Count</label>
-                            <input type="number" class="form-control" >
+                            <input type="number" formControlName="totalEmpWorking" class="form-control" >
                         </div>
                         <div class="col-6">
                             <label for="">Project Costing</label>
-                            <input type="number" class="form-control">
+                            <input type="number" formControlName="projectCost" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Project Description</label>
-                            <div class="text-area"></div>
+                            <textarea formControlName="projectDetails" class="form-control"></textarea>
                         </div>
                         <div class="col-6">
-                            <label for="">Project Costing</label>
-                            <select class="form-control">
+                            <label for="">Select Client</label>
+                            <select formControlName="clientId" class="form-control">
                                 <option value="">Select client</option>
                             </select>
                         </div>
                         <div class="col-6">
                             <label for="">Lead By</label>
-                            <select class="form-control">
+                            <select formControlName="leadByEmpId" class="form-control">
                                 <option value="">Select Employee</option>
-                            </select>
+                                <option *ngFor="let employee of employeeList" [value]="employee.id">
+                                  {{ employee.name }}
+                                </option>
+                              </select>
                         </div>
                     </div>
                 </form>
                 <div class="row">
                     <div class="col-6 text-center pt-2">
-                        <button class="btn btn-success" [disabled]="!form.valid" (click)="onSaveClient()">{{clientObj.clientId!=0?'Update
-                            Client':'Save Client'}}</button>
+                        <button class="btn btn-success" [disabled]="!projectForm.valid" (click)="onSaveClient()">
+                            {{clientObj.clientId!=0?'Update Client':'Save Client'}}
+                          </button>
                     </div>
                     <div class="col-6 text-center pt-2">
                         <button class="btn btn-secondary">Reset</button>
